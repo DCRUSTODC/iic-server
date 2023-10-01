@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import eventsRoutes from "./routes/events.js";
+import galleryRoutes from "./routes/gallery.js";
 
 dotenv.config();
 await connectDB();
@@ -12,6 +13,7 @@ app.get("/", (req, res) => {
 });
 app.use(express.json());
 app.use("/api/event", eventsRoutes);
+app.use("/api", galleryRoutes);
 
 const PORT = process.env.PORT || 2002;
 
